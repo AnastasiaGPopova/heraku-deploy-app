@@ -33,7 +33,7 @@ app.use(routes)
 
 //-----Adding middleware-------
 //Always! it returns a middleware which parse the url encoded body, this will be used for every request
-
+let PORT = ''
 app.listen(PORT, () => {
   connect()
   console.log(`The server is running on Port ${PORT}...`);
