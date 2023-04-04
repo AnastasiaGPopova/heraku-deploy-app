@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import {RecordContext } from "../../contexts/RecordContext";
 import styles from "../Catalog/Catalog.module.css";
@@ -19,6 +19,18 @@ function Catalog() {
     rpm: "all",
     year: "all",
   });
+
+  useEffect(() => {
+    async function updateRecords(){
+      const result = await dataApi.getRecords()
+      setRecords(result)
+      setSortedByLikes(false)
+      setSortedByLastAdded(true)
+      setSortedByRecordName(false)
+      setSearchValues((state) => ({ searchItem:'', genres: "all", rpm: "all", year: "all" }))
+    }
+    updateRecords()
+  }, [])
 
   const onChangeHandler = (e) => {
     setSearchValues((state) => ({ ...state, [e.target.name]: e.target.value }));
