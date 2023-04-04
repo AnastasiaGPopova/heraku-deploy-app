@@ -4,12 +4,14 @@ const recordSchema = new mongoose.Schema({
     recordName: {
         type: String,
         required: true,
+        match: [/[A-Z][a-zA-Z]+/, "Record name should start with capital letter!"],
         minLength: [2, "Record name should be at least 2 characters !"],
         maxLength: [40, "Record name should be max 30 characters !"]
     }, 
     artist: {
         type: String,
         required: true,
+        match: [/[A-Z][a-zA-Z]+/, "Artist should start with capital letter!"],
         minLength: [3, "Artist should be at least 5 characters !"],
         maxLength: [60, "Artist should be max 30 characters !"]
     }, 
