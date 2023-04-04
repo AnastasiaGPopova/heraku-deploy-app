@@ -53,5 +53,5 @@ const connect = async () => {
 
 server.listen(3030 , () => {
   connect()
-  console.log(`The server is running  ${port}...`);
+  console.log(`The server is running  3030...`);
 });
