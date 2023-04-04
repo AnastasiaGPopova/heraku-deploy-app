@@ -19,7 +19,7 @@ const io = new Server(server, {
 })
 
 const _dirname = path.dirname('')
-const buildPath = path.join(_dirname, "../app/client/build")
+const buildPath = path.join(_dirname, "../client/build")
 
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
@@ -30,7 +30,7 @@ app.use(express.static(buildPath));
 app.use(routes)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../app/client/build/index.html'))
+  res.sendFile(path.join(__dirname, '../client/build/index.html'))
 });
 
 
