@@ -4,7 +4,7 @@ const http = require('http')
 const mongoose = require('mongoose');
 // const config = require('./configPorts')
 const path = require('path')
-const Server = require('socket.io')
+const Server = require('socket.io').Server
 const routes = require('./routes');
 const { authentication } = require('./middlewares/authMiddleware');
 
