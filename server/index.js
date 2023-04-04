@@ -30,7 +30,7 @@ app.use(express.static(buildPath));
 app.use(routes)
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'))
+  res.sendFile(path.join(__dirname, '../app/client/build/index.html'))
 });
 
 
