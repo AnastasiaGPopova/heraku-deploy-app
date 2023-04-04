@@ -18,19 +18,14 @@ app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(authentication());
-app.use(express.static(buildPath))
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
 app.use(routes)
 
-app.get('*'), function (req,res){
-  res.sendFile(
-    path.resolve(__dirname, 'client', 'build','index.html'),
-    function (err){
-      if(err){
-        res.status(500).send(err)
-      }
-    }
-  )
-}
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'front_end', 'build', 'index.html'))
+});
+
 
 
 
