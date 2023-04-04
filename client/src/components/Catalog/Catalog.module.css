@@ -584,3 +584,9 @@ form label{
   color: white;
   transform: translate(270px, -40px)
 }
+
+.catalogTextP{
+  color: white;
+  transform: translate(270px, -20px);
+  font-style: italic;
+}
