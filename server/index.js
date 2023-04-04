@@ -28,11 +28,6 @@ app.use(authentication());
 // app.use(express.static(buildPath));
 
 app.use(routes)
-app.use(express.static(path.resolve(__dirname, "client", "build")));
-
-app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 
 
@@ -52,7 +47,7 @@ const connect = async () => {
 };
 
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3030
 //-----Adding middleware-------
 //Always! it returns a middleware which parse the url encoded body, this will be used for every request
 
