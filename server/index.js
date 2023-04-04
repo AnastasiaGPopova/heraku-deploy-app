@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+// const config = require('./configPorts')
 
 const routes = require('./routes');
 const { authentication } = require('./middlewares/authMiddleware');
@@ -33,8 +34,8 @@ app.use(routes)
 
 //-----Adding middleware-------
 //Always! it returns a middleware which parse the url encoded body, this will be used for every request
-let PORT = 3030
-app.listen(PORT, () => {
+
+app.listen((process.env.PORT || 5000) , () => {
   connect()
   console.log(`The server is running on Port ${PORT}...`);
 });
