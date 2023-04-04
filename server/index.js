@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 // const config = require('./configPorts')
+const path = require('path')
 
 const routes = require('./routes');
 const { authentication } = require('./middlewares/authMiddleware');
@@ -10,10 +11,25 @@ const { authentication } = require('./middlewares/authMiddleware');
 
 const app = express();
 
+const _dirname = path.dirname('')
+const buildPath = path.join(_dirname, "../client/build")
+
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(authentication());
+app.use(express.static(buildPath))
+
+app.get('/*'), function (req,res){
+  res.sendFile(
+    path.join(__dirname, '../client/build/index.html'),
+    function (err){
+      if(err){
+        res.status(500).send(err)
+      }
+    }
+  )
+}
 
 
 
