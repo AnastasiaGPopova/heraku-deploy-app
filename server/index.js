@@ -19,7 +19,7 @@ const io = new Server(server, {
 })
 
 const _dirname = path.dirname('')
-const buildPath = path.join(_dirname, "../client/build")
+const buildPath = path.join(_dirname, "../app/client/build")
 
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
