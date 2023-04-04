@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(authentication());
 app.use(express.static(buildPath))
+app.use(routes)
 
 app.get('/*'), function (req,res){
   res.sendFile(
@@ -46,7 +47,6 @@ const connect = async () => {
   }
 };
 
-app.use(routes)
 
 const PORT = process.env.PORT || 5000
 //-----Adding middleware-------
