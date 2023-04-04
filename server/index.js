@@ -48,10 +48,11 @@ const connect = async () => {
 
 app.use(routes)
 
+const PORT = process.env.PORT || 5000
 //-----Adding middleware-------
 //Always! it returns a middleware which parse the url encoded body, this will be used for every request
 
-app.listen((process.env.PORT || 5000) , () => {
+app.listen(PORT , () => {
   connect()
   console.log(`The server is running ...`);
 });
