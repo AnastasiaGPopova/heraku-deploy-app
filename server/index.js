@@ -53,5 +53,5 @@ const port = process.env.PORT || 3030
 
 server.listen(port , () => {
   connect()
-  console.log(`The server is running ...`);
+  console.log(`The server is running  ${port}...`);
 });
