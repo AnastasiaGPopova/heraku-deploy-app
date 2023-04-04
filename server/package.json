@@ -7,11 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "nodemon index.js",
-    "client-install": "cd client && npm run install",
-    "client-build": "cd client && npm run build",
-    "build": "ng build",
-    "heroku-postbuild": "ng build --prod" 
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
