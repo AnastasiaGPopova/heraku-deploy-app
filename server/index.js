@@ -37,5 +37,5 @@ app.use(routes)
 
 app.listen((process.env.PORT || 5000) , () => {
   connect()
-  console.log(`The server is running on Port ${PORT}...`);
+  console.log(`The server is running ...`);
 });
