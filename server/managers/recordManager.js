@@ -6,7 +6,7 @@ exports.getAllRecordsByOwner = (ownerId) => Record.find({ "_ownerId": `${ownerId
 // exports.getAll =() => Record.find()
 
 exports.getOne = (id) => Record.findById(id);
-exports.getExisting = (recordname) => Record.find({'recordName': `${recordname}`});
+exports.getExisting = (recordname) => Record.findOne({recordname});
 
 exports.getAll = () => Record.find().sort({createdAt: -1})
 
