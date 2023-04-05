@@ -47,14 +47,12 @@ router.post("/", async (req, res) => {
   // genre: realGenre,
 
   const {recordName, artist, year, imageUrl, description, genre, rpm} = req.body;
-
+  const existingRecord = await recordManager.getExisting(recordName)
   try {
 
     if(!recordName || !artist || !year || !imageUrl || !description || !genre || !rpm){
       throw new Error (`All fields are requiered!`)
     }
-
-    const existingRecord = await recordManager.getExisting(recordName)
 
     if(existingRecord){
       throw new Error (`This record already exist in the catalog!`)
