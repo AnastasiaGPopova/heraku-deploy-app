@@ -54,10 +54,10 @@ router.post("/", async (req, res) => {
       throw new Error (`All fields are requiered!`)
     }
 
-    const test = recordManager.getExisting(recordName)
+    const existingRecord = await recordManager.getExisting(recordName)
     console.log(test)
 
-    if(recordManager.getExisting(recordName)){
+    if(existingRecord){
       throw new Error (`This record already exist in the catalog!`)
     }
 
