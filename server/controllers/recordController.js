@@ -55,7 +55,6 @@ router.post("/", async (req, res) => {
     }
 
     const existingRecord = await recordManager.getExisting(recordName)
-    console.log(test)
 
     if(existingRecord){
       throw new Error (`This record already exist in the catalog!`)
