@@ -24,7 +24,7 @@ function Create() {
       <form>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-solid fa-envelope" /> Record Name:
+            <i className="fa-light fa-album-collection-circle-plus" /> Record Name:
           </label>
           <input
             className={styles.registerboxInput}
@@ -38,7 +38,7 @@ function Create() {
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-solid fa-envelope" /> Artist:
+            <i className="fa-regular fa-user-music" /> Artist:
           </label>
           <input
             className={styles.registerboxInput}
@@ -52,7 +52,7 @@ function Create() {
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-solid fa-envelope" /> Year:
+            <i className="fa-light fa-calendar-week" /> Year:
           </label>
           <input
             className={styles.registerboxInput}
@@ -67,7 +67,7 @@ function Create() {
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-solid fa-envelope" /> Image Url:
+            <i className="fa-sharp fa-light fa-image" /> Image Url:
           </label>
           <input
             className={styles.registerboxInput}
@@ -82,7 +82,7 @@ function Create() {
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-solid fa-envelope" /> Description:
+            <i className="fa-light fa-feather" /> Description:
           </label>
           <textarea
             className={styles.registerboxInputDescription}
