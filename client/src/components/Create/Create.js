@@ -38,7 +38,7 @@ function Create() {
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-thin fa-user-music"/> Artist:
+            <i className="fa-thin fa-user-music"/>Artist:
           </label>
           <input
             className={styles.registerboxInput}
