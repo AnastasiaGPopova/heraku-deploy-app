@@ -2,7 +2,7 @@
 import styles from "../Create/Create.module.css";
 import { useForm } from "../../hooks/useForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCompactDisc, faUser, faCalendar, faPhotoFilm, faPenNib } from '@fortawesome/free-solid-svg-icons'
 
 function Create() {
   const {recordValues, onChangeHandler, onGenresChange, onSubmitHandler, errorMessages} = useForm({}, {
@@ -27,7 +27,7 @@ let test =''
       <form>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-light fa-album-collection-circle-plus"/> Record Name:
+          <FontAwesomeIcon icon={faCompactDisc} style={{color: "#ffffff",}} /> Record Name:
           </label>
           <input
             className={styles.registerboxInput}
@@ -55,7 +55,7 @@ let test =''
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-light fa-calendar-week" /> Year:
+          <FontAwesomeIcon icon={faCalendar} style={{color: "#ffffff",}} /> Year:
           </label>
           <input
             className={styles.registerboxInput}
@@ -70,7 +70,7 @@ let test =''
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-sharp fa-light fa-image" /> Image Url:
+          <FontAwesomeIcon icon={faPhotoFilm} /> Image Url:
           </label>
           <input
             className={styles.registerboxInput}
@@ -85,7 +85,7 @@ let test =''
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-light fa-feather" /> Description:
+          <FontAwesomeIcon icon={faPenNib} /> Description:
           </label>
           <textarea
             className={styles.registerboxInputDescription}
