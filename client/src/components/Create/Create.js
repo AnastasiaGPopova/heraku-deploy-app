@@ -24,7 +24,7 @@ function Create() {
       <form>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-light fa-album-collection-circle-plus" /> Record Name:
+            <i className="fa-light fa-album-collection-circle-plus"/> Record Name:
           </label>
           <input
             className={styles.registerboxInput}
@@ -38,7 +38,7 @@ function Create() {
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-            <i className="fa-regular fa-user-music" /> Artist:
+            <i className="fa-thin fa-user-music"/> Artist:
           </label>
           <input
             className={styles.registerboxInput}
