@@ -2,7 +2,7 @@
 import styles from "../Create/Create.module.css";
 import { useForm } from "../../hooks/useForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Create() {
   const {recordValues, onChangeHandler, onGenresChange, onSubmitHandler, errorMessages} = useForm({}, {
@@ -41,7 +41,7 @@ let test =''
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-          <FontAwesomeIcon icon={faCalendar} /> Artist:
+          <FontAwesomeIcon icon={faUser} /> Artist:
           </label>
           <input
             className={styles.registerboxInput}
