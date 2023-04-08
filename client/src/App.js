@@ -62,7 +62,6 @@ function App() {
 
     } else {
       setIsLogged(false)
-
     }
   }, [auth]);
 
@@ -91,10 +90,11 @@ function App() {
     setRecords,
     setIsChanged,
     isLogged,
+    setIsLogged,
     setLoading,
     loading,
     errorMessages,
-    setErrorMessages
+    setErrorMessages,
     }
 
 
@@ -112,6 +112,7 @@ function App() {
         <Route path="/records/:recordId/edit" element={<RequireAuth loginPath="/login"><Edit/></RequireAuth>}/>                                                    
          <Route path="/myProfile" element={<RequireAuth loginPath="/login"><Profile/></RequireAuth>} />
          <Route path="*" element={<Error/>}/>
+         <Route path="/404" element={<Error/>}/>
       </Routes>
       </RecordContext.Provider>
       <Footer />
