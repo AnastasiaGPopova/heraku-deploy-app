@@ -173,3 +173,8 @@ exports.getbyRPM = (item) => Record.find({ "rpm": `${item}` })
 
 
 
+///---With item, genre and rpm
+
+exports.itemGenreRPM = (item, genres, rpm) => Record.find(
+    {"artist": { "$regex": `${item}`, "$options": "i" },"genre": { "$regex": `${genres}`, "$options": "i" }, "rpm": `${rpm}`},
+);
