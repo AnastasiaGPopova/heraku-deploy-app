@@ -65,7 +65,6 @@ const navigate = useNavigate();
       <h5>{artist}</h5>
       <p>Album: {recordName}</p>
       <img src={imageUrl} alt="" />
-      <p>Likes: {likes}</p>
       <div>
         <Link to={`/records/edit`} className={styles.btnedit}>
           Buy
