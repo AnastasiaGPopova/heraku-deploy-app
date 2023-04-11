@@ -60,12 +60,13 @@ const navigate = useNavigate();
 
   }
 
-  
+
   return buyOrHave ? (
     <div className={styles.record}>
       <h5>{artist}</h5>
       <p>Album: {recordName}</p>
       <img src={imageUrl} alt="" />
+      <br/>
       <div>
         <Link to={`/records/edit`} className={styles.btnedit}>
           Buy
