@@ -60,6 +60,7 @@ const navigate = useNavigate();
 
   }
 
+  
   return buyOrHave ? (
     <div className={styles.record}>
       <h5>{artist}</h5>
