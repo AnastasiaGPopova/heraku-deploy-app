@@ -69,10 +69,11 @@ const navigate = useNavigate();
       <br/>
       <br/>
       <div>
-        <Link to="" onClick={()=> window.open(`https://www.ebay.co.uk/sch/176985/i.html?_from=R40&_nkw=${recordName}&LH_TitleDesc=0`)} className={styles.btnedit}>
+        <Link to="" onClick={()=> window.open(`https://www.ebay.co.uk/sch/176985/i.html?_from=R40&_nkw=${recordName}&LH_TitleDesc=0`)} 
+        className={styles.btndelete}>
           Buy
         </Link>
-        <Link to="" onClick={onGotIt} className={styles.btndelete}>
+        <Link to="" onClick={onGotIt} className={styles.btnedit}>
           Got it!
         </Link>
       </div>
