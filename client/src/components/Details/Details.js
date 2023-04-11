@@ -179,6 +179,7 @@ function Details() {
                )
                }
                <br/>
+               <br/>
               {isAlreadyLiked ? 
               (
                 <p className={styles.btndelete}>
