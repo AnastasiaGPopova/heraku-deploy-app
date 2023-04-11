@@ -72,6 +72,7 @@ const navigate = useNavigate();
         <Link to="" onClick={()=> window.open(`https://www.ebay.co.uk/sch/176985/i.html?_from=R40&_nkw=${recordName}&LH_TitleDesc=0`)} className={styles.btnedit}>
           Buy
         </Link>
+        <br/>
         <Link to="" onClick={onGotIt} className={styles.btndelete}>
           Got it!
         </Link>
