@@ -67,6 +67,7 @@ const navigate = useNavigate();
       <p>Album: {recordName}</p>
       <img src={imageUrl} alt="" />
       <br/>
+      <br/>
       <div>
         <Link to={`/records/edit`} className={styles.btnedit}>
           Buy
