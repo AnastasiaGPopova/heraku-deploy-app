@@ -48,6 +48,8 @@ router.post("/", async (req, res) => {
 
   const {recordName, artist, year, imageUrl, description, genre, rpm} = req.body;
   const existingRecord = await recordManager.getExisting(recordName)
+
+
   try {
 
     if(!recordName || !artist || !year || !imageUrl || !description || !genre || !rpm){
@@ -55,7 +57,7 @@ router.post("/", async (req, res) => {
     }
 
     if(existingRecord){
-      throw new Error (`This record already exist in the catalog!`)
+      throw new Error (`This record already exist in our catalog!`)
     }
 
 
@@ -73,17 +75,18 @@ router.put("/:recordId", async (req, res) => {
   //const {........} = req.body
   let isOwner = true;
   let currentRecord = await recordManager.getOne(req.params.recordId);
-  const {recordName, artist, year, imageUrl, description, genre, rpm, likes, wishingList} = req.body;
+  const {recordName, artist, year, imageUrl, description, genre, rpm, likes, wishingList, likedBy} = req.body;
+  console.log(likes)
+  console.log(wishingList)
 
-    try {
+  try {
 
     if(!recordName || !artist || !year || !imageUrl || !description || !genre || !rpm){
         throw new Error (`All fields are requiered!`)
       }
 
-    const updatredRecord =  await recordManager.update(req.params.recordId, {recordName, artist, year, imageUrl, description, genre, rpm, likes, wishingList});
-
-      res.json(updatredRecord);
+    const updatredRecord =  await recordManager.update(req.params.recordId, {recordName, artist, year, imageUrl, description, genre, rpm, likes, wishingList, likedBy});
+    res.json(updatredRecord);
     } catch (error) {
       console.log(error)
       return res.json(parser.parseError(error))
