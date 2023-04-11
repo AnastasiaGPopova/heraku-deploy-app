@@ -19,6 +19,7 @@ function Details() {
 
   const [currentRecord, setCurrentRecord] = useState({});
   const [isAlreadyWished, setIsAlreadyWished] = useState(false)
+  const [isAlreadyLiked, setIsAlreadyLiked] = useState(false)
   const [postedBy, setPostedBy] = useState('')
 
 
@@ -39,9 +40,12 @@ function Details() {
     async function getCurrent() {
       setLoading(true)
       const response = await data.getItemById(recordId);
+
       if(response.hasOwnProperty('errors')){
         navigate('/404')
+        return
       }
+
       if(response._ownerId._id === currentUserId){
         setIsOwner(true)
       }else{
@@ -53,28 +57,48 @@ function Details() {
     }
 
     getCurrent();
-  }, [recordId, setIsOwner, currentUserId, setLoading]);
+  }, [recordId, setIsOwner, currentUserId, setLoading, navigate]);
  //---------------------------------------
 
  
   //--------Set isWished or not------------
   useEffect(() => {
-    if(currentRecord.hasOwnProperty('wishingList')){
-      if(currentRecord.wishingList.includes(currentUserId)){
-        setIsAlreadyWished(true)
+    if(currentRecord.hasOwnProperty('likedBy')){
+      if(currentRecord.likedBy.includes(currentUserId)){
+        setIsAlreadyLiked(true)
       }
+    }
+      if(currentRecord.hasOwnProperty('wishingList')){
+        if(currentRecord.wishingList.includes(currentUserId)){
+          setIsAlreadyWished(true)
+        }
     }
   }, [currentRecord, currentUserId])
  //---------------------------------------
 
   console.log(isOwner)
 
-  //--------on Wish/Like Click------------
+  //--------on Wish Click------------
   async function onWishClick() {
     currentRecord.wishingList.push(currentUserId);
-    currentRecord.likes++
-    setCurrentRecord((state) => ({ ...state, wishingList: currentRecord.wishingList, likes: currentRecord.likes }));
+    setCurrentRecord((state) => ({ ...state, wishingList: currentRecord.wishingList }));
     let newBody = { ...currentRecord };
+    console.log(`New Body: ${newBody}`)
+    const updatedWish = await data.editRecord(recordId, newBody);
+    setRecords(state => [...state, updatedWish])
+    setIsChanged(updatedWish)
+    navigate(`/records/${recordId}`);
+  }
+   //---------------------------------------
+
+
+     //--------on Like Click------------
+  async function onLikeClick() {
+    currentRecord.likedBy.push(currentUserId);
+    currentRecord.likes++
+    setCurrentRecord((state) => ({ ...state, likedBy: currentRecord.likedBy, likes: currentRecord.likes }));
+    let newBody = { ...currentRecord };
+    console.log(`New Body: ${newBody}`)
     const updatedWish = await data.editRecord(recordId, newBody);
     setRecords(state => [...state, updatedWish])
     setIsChanged(updatedWish)
@@ -90,8 +114,8 @@ function Details() {
     if(choise){
       await data.deleteAllCommentsbyUser(recordId)
       await data.deleteRecord(id)
-
       setRecords(state => (state.filter(x => x._id !== id)))
+      navigate('/catalog')
     }
   }
   //---------------------------------------
@@ -140,7 +164,7 @@ function Details() {
               {isAlreadyWished ? 
               (
                 <p className={styles.btnwish}>
-                You already liked this record and added it to your wish list
+                You already added it to your wish list!
                 </p>
               )
                :
@@ -149,13 +173,31 @@ function Details() {
                 <Link to={`/records/${currentRecord._id}`}
                   className={styles.btnwish}
                   onClick={onWishClick}
+                > Wish to hear!
+                </Link>
+                </>
+               )
+               }
+              {isAlreadyLiked ? 
+              (
+                <p className={styles.btndelete}>
+                You already liked this record!
+                </p>
+              )
+               :
+               (
+                <>
+                <Link to={`/records/${currentRecord._id}`}
+                  className={styles.btndelete}
+                  onClick={onLikeClick}
                 >
-                <i className="fa-regular fa-heart" /> Love it! Wish to hear!
+                <i className="fa-regular fa-heart" /> Like it!
                 </Link>
                 </>
                )
                }
               </>
+              
             )}
           </div>
            }
