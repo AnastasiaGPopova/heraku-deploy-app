@@ -1,7 +1,7 @@
 import * as api from './api.js';
 
 
-const host = 'https://record-me.onrender.com/';
+const host = 'https://record-me.onrender.com';
 api.settings.host = host;
 
 export const login = api.login;
