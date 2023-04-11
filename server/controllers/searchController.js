@@ -158,7 +158,7 @@ router.post("/", async (req, res) => {
         //SearchItem+ Genre + Year
         if(year !== "all" && rpm === "all" && genres !=="all" && searchItem !== ""){
 
-            console.log(`-------Iteam and year-----------`)
+            console.log(`-------SearchItem+ Genre + Year-----------`)
     
             if(year === "1980-2020"){
                 const result = await recordManager.itemGenreYear1980to2020(searchItem, genres).clone()
@@ -213,15 +213,15 @@ router.post("/", async (req, res) => {
         }
 
 
-                        //SearchItem+ Genre + RPM
+                //SearchItem+ Genre + RPM
 
-                        if(year === "all" && rpm !== "all" && genres !=="all" && searchItem !== ""){
+                if(year === "all" && rpm !== "all" && genres !=="all" && searchItem !== ""){
 
-                            console.log(`-------Iteam + Genre + RPM-----------`)
-        
-                            const result = await recordManager.itemGenreRPM(searchItem, genres, rpm)
-                            return res.json(result)
-                        }
+                    console.log(`-------Iteam + Genre + RPM-----------`)
+
+                    const result = await recordManager.itemGenreRPM(searchItem, genres, rpm)
+                    return res.json(result)
+                }
 
 //------------ Combinations with Year
 

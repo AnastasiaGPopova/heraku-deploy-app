@@ -53,7 +53,7 @@
   width: 150vh;
   color: white;
   align-items: center;
-  transform: translateY(20px);
+  transform: translateY(-65px);
   justify-content: center;
 
 }
@@ -186,13 +186,13 @@
 
 .norecord{
   text-align: right;
-  transform: translateY(100px);
+  transform: translateY(50px);
 }
 
 main{
   display: inline-block;
   position: relative;
-  transform: translate(-100px, 110px);
+  transform: translate(-100px, 160px);
   justify-content: center;
   align-items: center;
 }

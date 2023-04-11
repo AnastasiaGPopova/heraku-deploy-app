@@ -4,6 +4,7 @@ import { useForm } from "../../hooks/useForm";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompactDisc, faUser, faCalendar, faPhotoFilm, faPenNib } from '@fortawesome/free-solid-svg-icons'
 
+
 function Create() {
   const {recordValues, onChangeHandler, onGenresChange, onSubmitHandler, errorMessages} = useForm({}, {
     recordName: "",
@@ -15,7 +16,6 @@ function Create() {
   }, 'create')
 
 
-let test =''
   return (
     <div className={styles.hero}>
       {errorMessages && (
@@ -41,7 +41,7 @@ let test =''
         </div>
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-          <FontAwesomeIcon icon={faUser} /> Artist:
+          <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} /> Artist:
           </label>
           <input
             className={styles.registerboxInput}
@@ -70,7 +70,7 @@ let test =''
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-          <FontAwesomeIcon icon={faPhotoFilm} /> Image Url:
+          <FontAwesomeIcon icon={faPhotoFilm} style={{color: "#ffffff",}} /> Image Url:
           </label>
           <input
             className={styles.registerboxInput}
@@ -85,7 +85,7 @@ let test =''
 
         <div className={styles.registerbox}>
           <label className={styles.registerboxLabels} htmlFor="text">
-          <FontAwesomeIcon icon={faPenNib} /> Description:
+          <FontAwesomeIcon icon={faPenNib} style={{color: "#ffffff",}} /> Description:
           </label>
           <textarea
             className={styles.registerboxInputDescription}

@@ -29,8 +29,8 @@ export const useCommentForm = (initialValueContent, initialeValueAllComments, re
         allComments,
         setAllComments,
         onChangeHandler,
-        onSubmitHandler,
-        commentContent
+        commentContent,
+        onSubmitHandler
       }
 
 

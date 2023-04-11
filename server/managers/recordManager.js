@@ -6,11 +6,12 @@ exports.getAllRecordsByOwner = (ownerId) => Record.find({ "_ownerId": `${ownerId
 // exports.getAll =() => Record.find()
 
 exports.getOne = (id) => Record.findById(id);
-exports.getExisting = (recordname) => Record.findOne({"recordName": `${recordname}`});
 
 exports.getAll = () => Record.find().sort({createdAt: -1})
 
 exports.create = (recordData) => Record.create(recordData);
+
+exports.getExisting = (recordname) => Record.findOne({"recordName": `${recordname}`});
 
 exports.update = (id, recordData) => Record.findByIdAndUpdate(id, recordData, {runValidators: true});
 
@@ -93,6 +94,14 @@ exports.allYear2020andNwer = (item, genres, rpm) => Record.find(
 );
 
 
+///---With item, genre and rpm
+
+exports.itemGenreRPM = (item, genres, rpm) => Record.find(
+    {"artist": { "$regex": `${item}`, "$options": "i" },"genre": { "$regex": `${genres}`, "$options": "i" }, "rpm": `${rpm}`},
+);
+
+
+
 //year and prm
 
 exports.RPMYear1980to2020 = (rpm) => Record.find(
@@ -173,8 +182,3 @@ exports.getbyRPM = (item) => Record.find({ "rpm": `${item}` })
 
 
 
-///---With item, genre and rpm
-
-exports.itemGenreRPM = (item, genres, rpm) => Record.find(
-    {"artist": { "$regex": `${item}`, "$options": "i" },"genre": { "$regex": `${genres}`, "$options": "i" }, "rpm": `${rpm}`},
-);

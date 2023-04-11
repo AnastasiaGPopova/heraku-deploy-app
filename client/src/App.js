@@ -31,7 +31,6 @@ function App() {
   const [loading, setLoading]= useState(false)
 
 
-
   //-----Spotify API Access Token ------------
 
     const baseUrl = `https://accounts.spotify.com/api/token`
@@ -111,7 +110,7 @@ function App() {
         <Route path="/records/:recordId" element={<Details/>}/>
         <Route path="/records/:recordId/edit" element={<RequireAuth loginPath="/login"><Edit/></RequireAuth>}/>                                                    
          <Route path="/myProfile" element={<RequireAuth loginPath="/login"><Profile/></RequireAuth>} />
-         <Route path="*" element={<Error/>}/>
+         <Route path="/*" element={<Error/>}/>
          <Route path="/404" element={<Error/>}/>
       </Routes>
       </RecordContext.Provider>

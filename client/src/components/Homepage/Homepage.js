@@ -87,7 +87,6 @@ function Homepage() {
             Show your passion for vinyl records to the wolrd. Share your
             collection and get in touch with other vinyl lovers.
           </p>
-          <br/>
           <div className={styles.buttonPosition}>
             <button
               className={styles.homebutton}

@@ -67,7 +67,7 @@ const navigate = useNavigate();
       <img src={imageUrl} alt="" />
       <p>Likes: {likes}</p>
       <div>
-        <Link to={`https://www.ebay.co.uk/sch/176985/i.html?_from=R40&_nkw=${recordName}&LH_TitleDesc=0`} className={styles.btnedit}>
+        <Link to={`/records/edit`} className={styles.btnedit}>
           Buy
         </Link>
         <Link to="" onClick={onGotIt} className={styles.btndelete}>
